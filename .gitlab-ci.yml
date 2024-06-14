@@ -1,0 +1,47 @@
+stages:
+  - publish
+  - deploy
+
+variables:
+  TAG_LATEST: '$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:latest'
+  TAG_COMMIT: '$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA'
+
+publish an image to gitlab container registry:
+  image: docker:20.10.16
+  stage: publish
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "development"'
+  services:
+    - name: docker:20.10.16-dind
+      alias: docker
+  script:
+    - docker build -t $TAG_LATEST -t $TAG_COMMIT .
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker push $TAG_LATEST
+    - docker push $TAG_COMMIT
+
+deploy image to server instance:
+  image: alpine:latest
+  stage: deploy
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "development"'
+  services:
+    - docker:dind
+  tags:
+    - dev-deployment
+  script:
+    - apk update && apk add openssh-client
+    - echo "$DEV_ID_RSA" | tr -d '\r' > key.pem
+    - chmod 400 key.pem
+    - ssh -i key.pem -o StrictHostKeyChecking=no $DEV_SERVER_USER@$DEV_SERVER_IP "docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY"
+    - ssh -i key.pem -o StrictHostKeyChecking=no $DEV_SERVER_USER@$DEV_SERVER_IP "docker pull $TAG_LATEST"
+    - ssh -i key.pem -o StrictHostKeyChecking=no $DEV_SERVER_USER@$DEV_SERVER_IP "mkdir -p ~/devops-nestjs || true"
+    - scp -i key.pem -o StrictHostKeyChecking=no devops/docker-compose.yml $DEV_SERVER_USER@$DEV_SERVER_IP:~/devops-nestjs/
+    - scp -i key.pem -o StrictHostKeyChecking=no $DEV_ENV_FILE $DEV_SERVER_USER@$DEV_SERVER_IP:~/devops-nestjs/cineacloud-nest.env
+    - ssh -i key.pem -o StrictHostKeyChecking=no $DEV_SERVER_USER@$DEV_SERVER_IP "docker ps -aq | xargs docker rm || true"
+    - ssh -i key.pem -o StrictHostKeyChecking=no $DEV_SERVER_USER@$DEV_SERVER_IP "export IMAGE_TAG=$TAG_LATEST && cd ~/devops-nestjs && docker-compose stop"
+    - ssh -i key.pem -o StrictHostKeyChecking=no $DEV_SERVER_USER@$DEV_SERVER_IP "export IMAGE_TAG=$TAG_LATEST && cd ~/devops-nestjs && docker-compose up -d"
+    - ssh -i key.pem -o StrictHostKeyChecking=no $DEV_SERVER_USER@$DEV_SERVER_IP "docker image prune -f || true"
+  environment:
+    name: dev-instance
+    url: https://dev.cineacloud.com

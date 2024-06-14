@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callsheet Template</title>
+    <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+    <link href="./assets/css/font.css" rel="stylesheet">
+
+    <style>
+        @page {
+            margin: 1.5rem 1rem;
+        }
+
+        .overflow-text {
+            width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .f-18 {
+            font-size: 18px !important;
+        }
+
+        .f-16 {
+            font-size: 16px !important;
+        }
+
+        .f-12 {
+            font-size: 12px !important;
+        }
+
+        .f-10 {
+            font-size: 10px;
+        }
+
+        .f-500 {
+            font-weight: 500 !important;
+        }
+
+        .f-600 {
+            font-weight: 600 !important;
+        }
+
+        .capitalize {
+            text-transform: uppercase;
+        }
+
+        .p-0 {
+            padding: 0px !important;
+        }
+
+        .m-0 {
+            margin: 0 !important;
+        }
+
+        .py-3 {
+            padding: 1rem 0rem !important;
+        }
+
+        .py-2 {
+            padding: 0.5rem 0rem;
+        }
+
+        .py-1 {
+            padding: 0.25rem 0rem;
+        }
+
+        .w-100 {
+            width: 100%
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .text-right {
+            text-align: right !important;
+        }
+
+        .text-left {
+            text-align: left !important;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .align-items-center {
+            align-items: center
+        }
+
+        .align-items-start {
+            align-items: start
+        }
+
+        .justify-content-between {
+            justify-content: space-between;
+        }
+
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        .page-logo {
+            object-fit: contain;
+            max-height: 3rem;
+        }
+
+        .time-circle {
+            width: 5rem;
+            height: 2rem;
+            border: 1px solid #000;
+            border-radius: 50%;
+            text-align: center;
+            padding: 20px 0px;
+        }
+
+        body p {
+            font-size: 12px;
+        }
+
+        td.table-split {
+            width: 33.333%;
+            max-width: 33.333%;
+        }
+
+        td.info-left,
+        td.info-right {
+            width: 25%;
+        }
+
+        td.info-center {
+            width: 50%;
+        }
+
+        .director-info th,
+        .director-info td,
+        .director-info tr {
+            font-size: 10px;
+        }
+
+        .script-info th,
+        .script-info td,
+        .script-info tr {
+            font-size: 10px;
+        }
+
+        .director-info>table>tbody>tr {
+            border-bottom: 0.8px solid #000;
+        }
+
+        .director-info>table>tbody>tr>th,
+        .script-info>table>tbody>tr>td {
+            width: 50%;
+            text-align: left;
+        }
+
+        .production-info {
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+
+        td.prod-info {
+            width: 40%;
+            text-align: center;
+        }
+
+        td.icon-info {
+            width: 20%;
+            text-align: center;
+        }
+
+        .base-parking-info>table>tbody>tr>td {
+            width: 50%;
+            text-align: center;
+        }
+
+        .location-info {
+            height: 80px;
+        }
+
+        .uline {
+            text-decoration: underline;
+        }
+
+        .border-left {
+            border-left: 1px solid #000;
+        }
+
+        .border-right {
+            border-right: 1px solid #000;
+        }
+
+        .border-top {
+            border-top: 1px solid #000;
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid #000;
+        }
+
+        .spacing-0 {
+            border-spacing: 0;
+        }
+
+        .h-100 {
+            height: 100%;
+        }
+
+        .pl-2 {
+            padding-left: 0.5rem;
+        }
+
+        .department-notes p {
+            border-left: 1px solid #000;
+            padding: 0 0.5rem;
+        }
+
+        .department-notes p:first-child {
+            border-left: none;
+        }
+
+        .my-1 {
+            margin: 0.25rem 0rem;
+        }
+
+        caption.table-heading {
+            caption-side: top;
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+            border-top: 1px solid #000;
+            color: #000;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+        }
+
+        th.scene_no,
+        th.scene_pages {
+            width: 10%;
+        }
+
+        th.description_scene {
+            width: 60%;
+        }
+
+        th.scene_location {
+            width: 20%;
+        }
+
+        th.note-head {
+            width: 35%;
+        }
+
+        th.contact-head {
+            width: 40%;
+        }
+
+        .scene-list>table,
+        .scene-list>table>thead>tr>th,
+        .scene-list>table>tbody>tr>th,
+        .scene-list>table>thead>tr>td,
+        .scene-list>table>tbody>tr>td,
+        .cast-list>table,
+        .cast-list>table>thead>tr>th,
+        .cast-list>table>tbody>tr>th,
+        .cast-list>table>thead>tr>td,
+        .cast-list>table>tbody>tr>td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .scene-list>table>thead>tr>th,
+        .cast-list>table>thead>tr>th {
+            background-color: #000;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.5rem 0rem;
+            border-right: 1px solid #fff;
+        }
+
+        .scene-list>table>tbody>tr,
+        .cast-list>table>tbody>tr {
+            height: 35px;
+            max-height: 100px;
+        }
+
+        .px-2 {
+            padding: 0rem 0.5rem;
+        }
+
+        .t-heading {
+            background-color: #000;
+            color: #fff;
+            caption-side: top;
+            font-weight: 600;
+        }
+
+        th.note-head {
+            width: 35%;
+        }
+
+        .quote-of-day {
+            border: 1px solid #000;
+        }
+
+        .title {
+            background-color: #000;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .p-2 {
+            padding: 0.5rem;
+        }
+
+        .contact-list>table,
+        .contact-list>table>thead>tr>th,
+        .contact-list>table>tbody>tr>th,
+        .contact-list>table>thead>tr>td,
+        .contact-list>table>tbody>tr>td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 10px;
+        }
+
+
+        th.contact-head {
+            width: 40%;
+        }
+
+        .company-move,
+        .banner {
+            background-color: #0000002c;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-layout">
+        <table class="w-100 page-header spacing-0">
+            <tbody>
+                <tr>
+                    <td class="table-split">
+                        <div>
+                            <% if(isSectionVisible.productionTitle) { %>
+                            <p class='m-0  f-600 capitalize overflow-text'>
+                                <%-title%>
+                            </p>
+                            <% } %>
+                            <% if(isSectionVisible.logo) { %>
+                            <%if(logo) {%>
+                                <img class="page-logo" src="<%-logo%>" alt="logo" />
+                                <% } else { %>
+                                    <img class="page-logo" src="<%-base_url%>images/logo.png" class="logo" />
+                                    <%}%>
+
+                                        <p class='m-0 project-sub-head f-600 capitalize overflow-text'>
+                                            <%-userName%>
+                                        </p>
+                        <% } %>
+                        </div>
+                    </td>
+                    <td class="table-split">
+                        <div class='d-flex align-items-center justify-content-center'>
+                            <div class='time-circle'>
+                                <p class='m-0'>Crew Call</p>
+                                <p class='m-0 f-16 f-600'>
+                                    <%if(shootTiming?.callTime) {%>
+                                        <%-shootTiming?.callTime%>
+                                            <% } else { %>
+                                                -
+                                                <%}%>
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="table-split">
+                        <div class="text-center">
+                            <p class='m-0 f-500 text-center f-16'>
+                                <%-sheetDay%>
+                            </p>
+                            <p class='m-0 f-600 text-center f-18'>Day <%-currentDay%> of <%-totalDays%>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="production-info">
+        <table class="w-100 page-header spacing-0">
+            <tbody>
+                <tr>
+                    <td class="info-left">
+                        <div class='director-info'>
+                            <table class='w-100 spacing-0 '>
+                                <tr>
+                                    <th>Producer</th>
+                                    <td>
+                                        <%if(contacts?.producer?.name) {%>
+                                            <%-contacts?.producer?.name%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Co-Producer</th>
+                                    <td>
+                                        <%if(contacts?.co_producer?.name) {%>
+                                            <%-contacts?.co_producer?.name%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Segment-Producer</th>
+                                    <td>
+                                        <%if(contacts?.segment_producer?.name) {%>
+                                            <%-contacts?.segment_producer?.name%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Line-Producer</th>
+                                    <td>
+                                        <%if(contacts?.line_producer?.name) {%>
+                                            <%-contacts?.line_producer?.name%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Director</th>
+                                    <td>
+                                        <%if(contacts?.director?.name) {%>
+                                            <%-contacts?.director?.name%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Assistant-Director</th>
+                                    <td>
+                                        <%if(contacts?.assistant_director?.name) {%>
+                                            <%-contacts?.assistant_director?.name%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Screen-Writer</th>
+                                    <td>
+                                        <%if(contacts?.screen_writer?.name) {%>
+                                            <%-contacts?.screen_writer?.name%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Medic</th>
+                                    <td>
+                                        <%if(medic?.name) {%>
+                                            <%-medic?.medicName%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class='script-info py-3'>
+                            <table class='w-100 spacing-0'>
+                                <tr>
+                                    <td>Script Version</td>
+                                    <td>
+                                        <%if(miscellaneous?.scriptVersion) {%>
+                                            <%-miscellaneous?.scriptVersion%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Schedule Version</td>
+                                    <td>
+                                        <%if(miscellaneous?.scheduleVersion) {%>
+                                            <%-miscellaneous?.scheduleVersion%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td class="info-center border-left border-right">
+                        <div class='prod-location-info border-bottom'>
+                            <table class='w-100 spacing-0'>
+                                <tr>
+                                    <td class="prod-info border-right">
+                                        <div class="location-info">
+                                            <p class='mb-0 f-10 f-600 text-center uline'>Production Office</p>
+                                            <p class='mb-0 f-10 f-400 text-center'>
+                                                <%if(location?.productionOffice?.address) {%>
+                                                    <%-location?.productionOffice?.address%>
+                                                        <% } else { %>
+                                                            -
+                                                            <%}%>
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td class="icon-info">
+                                        <div class='location-icon h-100 text-center'>
+                                            <img class="page-logo"
+                                                src="data:image/png;base64,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"
+                                                alt="marker" />
+                                        </div>
+                                    </td>
+                                    <td class="prod-info border-left">
+                                        <div class="location-info">
+                                            <p class='mb-0 f-10 f-600 text-center uline'>Nearest Hospital</p>
+                                            <p class='mb-0 f-10 f-400 text-center'>
+                                                <%if(location?.nearestHospital?.address) {%>
+                                                    <%-location?.nearestHospital?.address%>
+                                                        <% } else { %>
+                                                            -
+                                                            <%}%>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class='base-parking-info'>
+                            <table class='w-100 spacing-0'>
+                                <tr>
+                                    <td class="border-right">
+                                        <div class="location-info">
+                                            <p class='mb-0 f-10 f-600 text-center uline'>Crew Parking</p>
+                                            <p class='mb-0 f-10 f-400 text-center'>
+                                                <%if(location?.parking?.address) {%>
+                                                    <%-location?.parking?.address%>
+                                                        <% } else { %>
+                                                            -
+                                                            <%}%>
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="locatio n-info">
+                                            <p class='mb-0 f-10 f-600 text-center uline'>Base Camp</p>
+                                            <p class='mb-0 f-10 f-400 text-center'>
+                                                <%if(location?.basecamp?.address) {%>
+                                                    <%-location?.basecamp?.address%>
+                                                        <% } else { %>
+                                                            -
+                                                            <%}%>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td class="info-right pl-2">
+                        <div class='director-info py-1'>
+                            <table class='w-100 spacing-0'>
+                                <tr>
+                                    <th>Breakfast</th>
+                                    <td>
+                                        <%if(breakfast?.startTime) {%>
+                                            <%-breakfast?.startTime%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Crew Call</th>
+                                    <td>
+                                        <%if(shootTiming?.callTime) {%>
+                                            <%-shootTiming?.callTime%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>First Meal</th>
+                                    <td>
+                                        <%if(firstMeal?.startTime) {%>
+                                            <%-firstMeal?.startTime%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Shooting Call</th>
+                                    <td>
+                                        <%if(shootTiming?.shootTime) {%>
+                                            <%-shootTiming?.shootTime%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Est. Wrap</th>
+                                    <td>
+                                        <%if(shootTiming?.wrapTime) {%>
+                                            <%-shootTiming?.wrapTime%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Second Meal</th>
+                                    <td>
+                                        <%if(secondMeal?.startTime) {%>
+                                            <%-secondMeal?.startTime%>
+                                                <% } else { %>
+                                                    -
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class='script-info py-2'>
+                            <table class='w-100 spacing-0'>
+                                <tr class="">
+                                    <td style="width: 40%;" class="py-1">
+                                        <p class='m-0 f-10'>
+                                            <%if(weather?.lowTemp) {%>
+                                                <!-- <%-weather?.lowTemp%>°F -->
+                                                    <% } else { %>
+                                                        - °F
+                                                        <%}%>
+                                        </p>
+                                        <p class='m-0 f-10'>low</p>
+                                    </td>
+                                    <td style="width: 20%;" class="py-1">V</td>
+                                    <td style="width: 40%;" class="py-1">
+                                        <p class='m-0 f-10'>
+                                            <%if(weather?.highTemp) {%>
+                                                <%-weather?.highTemp%>°F
+                                                    <% } else { %>
+                                                        - °F
+                                                        <%}%>
+                                        </p>
+                                        <p class='m-0 f-10'>high</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="py-1">
+                                        <p class='m-0 f-10'>
+                                            <%if(weather?.summary) {%>
+                                                <%-weather?.summary%>
+                                                    <% } else { %>
+                                                        -
+                                                        <%}%>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="py-1">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <p class='m-0 f-10'><span class='f-600'>Sunrise:</span> <span>
+                                                    <%if(weather?.sunrise) {%>
+                                                        <%-weather?.sunrise%>
+                                                            <% } else { %>
+                                                                -
+                                                                <%}%>
+                                                </span>
+                                            </p>
+                                            <p class='m-0 f-10'><span class='f-600'>Sunset:</span> <span>
+                                                    <%if(weather?.sunset) {%>
+                                                        <%-weather?.sunset%>
+                                                            <% } else { %>
+                                                                -
+                                                                <%}%>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+        </table>
+    </div>
+    <div class="note-info py-2">
+        <table class="w-100 page-header spacing-0">
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center department-notes"
+                            style="flex-wrap: wrap">
+                            <%if(productionReminders?.length> 0) {%>
+                                <% productionReminders.forEach((item, index)=> { %>
+                                    <p class='capitalize f-10 my-1'>
+                                        <%-item?.notes%>
+                                    </p>
+                                    <% }) %>
+                                        <%}%>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <% if(isSectionVisible.todaysSchedule) { %>
+    <div class='scene-list py-2'>
+        <table class='w-100'>
+            <caption class='table-heading'><i class="fa fa-calendar px-2" aria-hidden="true"></i>TODAY'S SCHEDULE
+            </caption>
+            <thead>
+                <tr>
+                    <th class='scene_no'>SCENE</th>
+                    <th class='description_scene'>DESCRIPTION</th>
+                    <th class='scene_pages'>PGS</th>
+                    <th class='scene_location'>LOCATION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%if(scenes?.length> 0) {%>
+                    <% scenes.forEach((item, index)=> { %>
+                        <%if(item.type=='scene' ) { %>
+                            <tr>
+                                <td>
+                                    <%-item?.scene%>
+                                </td>
+                                <td>
+                                    <%-item?.ie + ' ' + item?.title + ' ' + item?.time%>
+                                </td>
+                                <td>
+                                    <%-item?.pages%>
+                                </td>
+                                <td>
+                                    <%-item?.locationName%>
+                                </td>
+                            </tr>
+                            <% } else if (item.type=='company-move' ) { %>
+                                <tr class='company-move'>
+                                    <td colspan="3">
+                                        <%-item?.title%>
+                                    </td>
+                                    <td colspan="1">
+                                        <%-item?.locationName%>
+                                    </td>
+                                </tr>
+                                <% } else { %>
+                                    <tr class='banner'>
+                                        <td colspan="4">
+                                            <%-item?.title%>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                                        <% }) %>
+                                            <% } else { %>
+                                                <tr>
+                                                    <td colspan="4">There are no scenes available</td>
+                                                </tr>
+                                                <%}%>
+            </tbody>
+        </table>
+    </div>
+    <% }%>
+    <%if(isSectionVisible.cast) {%>
+    <div class='cast-list'>
+        <table class='w-100'>
+            <caption class='table-heading'><i class="fa fa-user px-2" aria-hidden="true"></i>CAST</caption>
+            <thead>
+                <tr>
+                    <th class=''>CAST</th>
+                    <th class=''>CHARACTER</th>
+                    <th class=''>STATUS</th>
+                    <th class=''>TRANSPO</th>
+                    <th class=''>CALL</th>
+                    <th class=''>BLK / RHS</th>
+                    <th class=''>MU / WARD</th>
+                    <th class=''>SET</th>
+                    <th class=''>REMARKS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%if(casts?.length> 0) {%>
+                    <% casts.forEach((item, index)=> { %>
+                        <tr>
+                            <td><%-item?.castName%></td>
+                            <td><%-item?.characterName%> </td>
+                            <td>
+                                <%if(item?.status) {%>
+                                    <%-item?.status%>
+                                <% } else { %>
+                                    -
+                                <%}%>
+                            </td>
+                            <td>
+                                <%-item?.pickupTime%>
+                            </td>
+                            <td><%-item?.arrivalTime%></td>
+                            <td><%-item?.blkTime%></td>
+                            <td><%-item?.wardTime%></td>
+                            <td><%-item?.setTime%></td>
+                            <td>
+                                <%if(item?.remarks) {%>
+                                    <%-item?.remarks%>
+                                <% } else { %>
+                                    -
+                                <%}%>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="9">There are no cast available</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <% }%>
+    <div class="bg-notes py-2">
+        <%if(isSectionVisible.extras) { %>
+        <table class="w-100 page-header spacing-0">
+            <tr>
+                <%if(isSectionVisible.departmentNotes) { %>
+                <td style="width: 50%">
+                    <% } else { %>
+                        <td style="width: 100%">
+                    <% } %>
+                    <div class='cast-list'>
+                        <table class='w-100'>
+                            <thead>
+                                <tr>
+                                    <th class=''>QTY</th>
+                                    <th class=''>TYPE</th>
+                                    <th class='' style="width: 30%">DESC</th>
+                                    <th class=''>ARRIVE @</th>
+                                    <th class=''>RDY @</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%if(extras.length> 0) {%>
+                                    <% extras.forEach((item, index)=> { %>
+                                        <tr>
+                                            <td><%-item?.quantity%></td>
+                                            <td><%-item?.extraType.split('_').join(' ').toUpperCase()%></td>
+                                            <td><%-item?.description%></td>
+                                            <td><%-item?.arrivalTime%></td>
+                                            <td><%-item?.setTime%></td>
+                                        </tr>
+                                    <% }) %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="5">No Extras added</td>
+                                    </tr>
+                                <%}%>
+                                
+                            </tbody>
+                        </table>
+                        <% } %>
+                    </div>
+                </td>
+                <td style="width: 50%">
+                    <div class='cast-list'>
+                        <%if(isSectionVisible.departmentNotes) { %>
+                        <table class='w-100'>
+                            <caption class='t-heading py-2'><i class="fa fa-volume-up px-2"
+                                    aria-hidden="true"></i>DEPARTMENT NOTES</caption>
+                            <tbody>
+                                <%if(departmentNotes?.length> 0) {%>
+                                    <% departmentNotes.forEach((item, index)=> { %>
+                                        <tr>
+                                            <th class='note-head'><%-item?.department.toUpperCase()%></th>
+                                            <td><%-item?.departmentNotes%></td>
+                                        </tr>
+                                    <% }) %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="2">-</td>
+                                    </tr>
+                                <%}%>
+                            </tbody>
+                        </table>
+                        <% } %>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="additional-crew">
+        <% if(isSectionVisible.additionalNotes) { %>
+        <table class='w-100 spacing-0'>
+            <tr class="d-flex align-items-start">
+                <% if(isSectionVisible.usefulContacts) { %>
+                <td style="width: 35%">
+                    <% } else {%>
+                        <td style="width: 100%">
+                <% } %>
+                    <table class='w-100 spacing-0 quote-of-day '>
+                        <tr>
+                            <td class="p-0">
+                                <p class='py-2 m-0 title'>ADDITIONAL CREW NOTES</p>
+                                <p class='m-0 p-2 f-12'>
+                                    <%if(generalNotes?.backNotes) {%>
+                                        <%-generalNotes?.backNotes%>
+                                    <% } else { %>
+                                        -
+                                    <%}%>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+        <% } %>
+                </td>
+                <%if(isSectionVisible.usefulContacts) { %>
+                    <% if(isSectionVisible.additionalNotes) { %>
+                <td style="width: 65%">
+                    <% } else { %>
+                        <td style="width: 65%">
+                            <% } %>
+                    <table class='w-100 spacing-0 quote-of-day '>
+                        <tr>
+                            <td class="p-0">
+                                <p class='py-2 m-0 title'>ADDITIONAL CREW NOTES</p>
+                                <div class='contact-list'>
+                                    <table class='w-100'>
+                                        <tbody>
+                                            <tr>
+                                                <th>Producer</th>
+                                                <td>
+                                                    <%if(contacts?.producer?.phone) {%>
+                                                        <%-contacts?.producer?.phone%>
+                                                            <% } else { %>
+                                                                -
+                                                                <%}%>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Co-Producer</th>
+                                                <td>
+                                                    <%if(contacts?.co_producer?.phone) {%>
+                                                        <%-contacts?.co_producer?.phone%>
+                                                            <% } else { %>
+                                                                -
+                                                                <%}%>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Segment-Producer</th>
+                                                <td>
+                                                    <%if(contacts?.segment_producer?.phone) {%>
+                                                        <%-contacts?.segment_producer?.phone%>
+                                                            <% } else { %>
+                                                                -
+                                                                <%}%>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Line-Producer</th>
+                                                <td>
+                                                    <%if(contacts?.line_producer?.phone) {%>
+                                                        <%-contacts?.line_producer?.phone%>
+                                                            <% } else { %>
+                                                                -
+                                                                <%}%>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Director</th>
+                                                <td>
+                                                    <%if(contacts?.director?.phone) {%>
+                                                        <%-contacts?.director?.phone%>
+                                                            <% } else { %>
+                                                                -
+                                                                <%}%>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Assistant-Director</th>
+                                                <td>
+                                                    <%if(contacts?.assistant_director?.phone) {%>
+                                                        <%-contacts?.assistant_director?.phone%>
+                                                            <% } else { %>
+                                                                -
+                                                                <%}%>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Screen-Writer</th>
+                                                <td>
+                                                    <%if(contacts?.screen_writer?.phone) {%>
+                                                        <%-contacts?.screen_writer?.phone%>
+                                                            <% } else { %>
+                                                                -
+                                                                <%}%>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <% } %>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

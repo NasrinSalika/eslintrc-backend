@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress-Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      span {
+        font-weight: normal;
+      }
+      body {
+        padding: 0.5rem !important;
+        font-family: "Roboto", sans-serif !important;
+      }
+      p {
+        font-weight: 500;
+      }
+      h1 {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 1rem;
+        text-align: center;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        gap: 5rem;
+        justify-content: space-between;
+      }
+      header > div {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .logoImg {
+        max-height: 50px;
+        min-height: 50x;
+        max-width: 80x;
+        min-width: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .border {
+        width: 100%;
+        margin-top: 1rem;
+        min-height: 2px;
+        border-bottom: 2px solid black;
+      }
+
+      /* progress report css style    */
+      .main{
+        margin-top: 2rem;
+      }
+      .h1-title{
+        font-weight: bold;
+        font-size: 1rem;
+        margin-bottom: -10px;
+      }
+      .header-flex{
+        display: flex;
+        justify-content:space-around;
+        border-bottom: 1px solid black;
+      }
+      p{
+        font-size: 14px;
+      }
+      .h1-main{
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .uppercase{
+        text-transform: uppercase;
+      }
+      .progress-info{
+        margin-bottom: 2rem;
+      }
+      .progress-main-border{
+        padding-left: 2rem;
+        padding-right: 2rem;
+        border-left: solid 1px black;
+        border-right: solid 1px black;
+      }
+
+     .second-section-layout{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 10px;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid black;
+        
+     }
+     .second-section-layout > div:last-child {
+        border-right: none; 
+    }
+
+     .second-section-layout > div> p{
+       word-wrap: break-word;
+       font-size: 14px;
+       text-align: center;
+       margin: auto;
+     }
+
+     .h2-second-section{
+       font-size: 1rem;
+       font-weight: bold;
+       text-align: center;
+     }
+    
+     /* table */
+     table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+      width: 14.28%; 
+      max-width: 100px; 
+      word-wrap: break-word; 
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+  /* end table  */
+    .border-bottom{
+      border-bottom: 1px solid black;
+      margin-top: 1rem;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <header>
+        <div>
+          <img class="logoImg" src="<%= logoImg %>" alt="" />
+        </div>
+        <div>
+          <h1>Progress Report</h1>
+        </div>
+        <div>
+          <h1><%= createdAt %></h1>
+        </div>
+      </header>
+
+      <div class="border"></div>
+      <!-- progress section  -->
+    <main>
+      
+        <!-- header section  -->
+        <div class="header-flex">
+            <!-- left -->
+            <section>
+                <div>
+                    <h2 class="h1-title">Production Company</h2>
+                    <p><%= PrCompany %></p>
+                </div>
+                <div>
+                    <h2 class="h1-title">Production Address</h2>
+                    <p><%= PrAddress %></p>
+                </div>
+                <div>
+                    <h2 class="h1-title">Production Phone</h2>
+                    <p><%= PrPhone %></p>
+                </div>
+                <div>
+                    <h2 class="h1-title">Production Email</h2>
+                    <p><%= PrEmail %></p>
+                </div>
+                <div>
+                    <h2 class="h1-title">Production Website</h2>
+                    <p><%= PrWebstie %></p>
+                </div>
+                <div>
+                    <h2 class="h1-title">Other</h2>
+                    <p><%= PrOther1 %></p>
+                </div>
+            </section>
+            <!-- main -->
+            <section class="progress-main-border">
+                <div class="progress-info">
+                    <h2 class="h1-main uppercase"> <%= scheduleName %></h2>
+                </div>
+                <div class="progress-info">
+                    <h2 class="h1-main"><%= scheduleCallTime %></h2>
+                </div>
+                <div class="progress-info">
+                    <h2 class="h1-main"><%= scheduleCallSheetName %></h2>
+                </div>
+                <div>
+                    <h2 class="h1-main"><%= scheduleDate %></h2>
+                </div>
+            </section>
+            <!-- right -->
+            <section>
+                <div>
+                    <h2 class="h1-title">Director</h2>
+                    <p><%= director %></p>
+                </div>
+                <div>
+                    <h2 class="h1-title"> DOP</h2>
+                    <p><%= dop %></p>
+                </div>
+                <div>
+                    <h2 class="h1-title">Execute Producer</h2>
+                    <p><%= executeProducer %></p>
+                </div>
+                <div>
+                    <h2 class="h1-title">AD</h2>
+                    <p><%= firstStad %></p>
+                </div>
+                <div>
+                    <h2 class="h1-title">AD</h2>
+                    <p><%= secondNdad %></p>
+                </div>
+                <div>
+                    <h2 class="h1-title">Other</h2>
+                    <p> <%= Other2 %> </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- 2nd section  -->
+        <div>
+            <section class="second-section-layout">
+                <div>
+                    <h2 class="h2-second-section">Start Date</h2>
+                    <p ><%= startDate %></p>
+                </div>
+                <div>
+                    <h2 class="h2-second-section">Est End Date</h2>
+                    <p><%= estEndDate %></p>
+                </div>
+                <div>
+                    <h2 class="h2-second-section">Days Shot</h2>
+                    <p><%= daysShot %></p>
+                </div>
+                <div>
+                    <h2 class="h2-second-section">Days Remaining</h2>
+                    <p><%= daysRemaining %></p>
+                </div>
+                <div>
+                    <h2 class="h2-second-section">1st Shot of Day</h2>
+                    <p><%= FirstStshotofday %></p>
+                </div>
+                <div>
+                    <h2 class="h2-second-section">Last Shot of Day</h2>
+                    <p><%= lastshotofday %></p>
+                </div>
+            </section>
+            <!-- second section part 2 -->
+            <section class="second-section-layout">
+              <div>
+                  <h2 class="h2-second-section">Total Scenes Shot</h2>
+                  <p ><%= TotalScenesShot %></p>
+              </div>
+              <div>
+                  <h2 class="h2-second-section">Scene Remaining</h2>
+                  <p><%= SceneRemaining %></p>
+              </div>
+              <div>
+                  <h2 class="h2-second-section">Extra Scenes</h2>
+                  <p><%= ExtraScenes %></p>
+              </div>
+              <div>
+                  <h2 class="h2-second-section">Total Pages Shot</h2>
+                  <p><%= TotalPagesShot %></p>
+              </div>
+              <div>
+                  <h2 class="h2-second-section">Pages Remaining</h2>
+                  <p><%= PagesRemaining %></p>
+              </div>
+              <div>
+                  <h2 class="h2-second-section">Total Mins Shot</h2>
+                  <p><%= TotalMinsShot %></p>
+              </div>
+          </section>
+          <!--second section part 3  -->
+          <section class="second-section-layout">
+            <div>
+                <h2 class="h2-second-section">Crew Call</h2>
+                <p ><%= CrewCall %></p>
+            </div>
+            <div>
+                <h2 class="h2-second-section">Crew Wrap Up</h2>
+                <p><%= CrewWrapUp %></p>
+            </div>
+            <div>
+                <h2 class="h2-second-section">1st Meal In</h2>
+                <p><%= stMealIn %></p>
+            </div>
+            <div>
+                <h2 class="h2-second-section">1st Meal Out</h2>
+                <p><%= stMealOut %></p>
+            </div>
+            <div>
+                <h2 class="h2-second-section">2nd Meal In</h2>
+                <p><%= ndMealIn %></p>
+            </div>
+            <div>
+                <h2 class="h2-second-section">2nd Meal Out</h2>
+                <p><%= SndMealOut %></p>
+            </div>
+        </section>
+        </div>   
+
+        <!-- 3nd section table  -->
+        <div>
+          <section>
+            <table>
+              <thead>
+                <tr>
+                  <th>Scene #</th>
+                  <th>Scene Shot</th>
+                  <th>Pages Shot</th>
+                  <th>Mins Shot</th>
+                  <th>Cast</th>
+                  <th>Scene Resheduled</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% sceneTable.forEach(row => { %>
+                  <tr>
+                    <% row.forEach(cell => { %>
+                      <td><%= cell %></td>
+                    <% }) %>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <table>
+              <thead>
+                <tr>
+                  <th>Cast</th>
+                  <th>Character</th>
+                  <th>Time In</th>
+                  <th>Time Out</th>
+                  <th>Travel</th>
+                  <th>Overtime</th>
+                  <th>Reason for Overtime</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% castListTable.forEach(row => { %>
+                  <tr>
+                    <% row.forEach(cell => { %>
+                      <td><%= cell %></td>
+                    <% }) %>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <table>
+              <thead>
+                <tr>
+                  <th>Crew</th>
+                  <th>Position</th>
+                  <th>Time In</th>
+                  <th>Time Out</th>
+                  <th>Travel</th>
+                  <th>Overtime</th>
+                  <th>Reason for Overtime</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% crewTable.forEach(row => { %>
+                  <tr>
+                    <% row.forEach(cell => { %>
+                      <td><%= cell %></td>
+                    <% }) %>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <table>
+              <thead>
+                <tr>
+                  <th> Media Card</th>
+                  <th>GB</th>
+                  <th>Footage Description</th>
+                  <th>Footage Duplicated</th>
+                  <th>Transfered To Hard Drive</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% mediaTable.forEach(row => { %>
+                  <tr>
+                    <% row.forEach(cell => { %>
+                      <td><%= cell %></td>
+                    <% }) %>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    Payment Amount </th>
+                  <th>Authorized By</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Department</th>
+                  <th>Payment By</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% paymentTable.forEach(row => { %>
+                  <tr>
+                    <% row.forEach(cell => { %>
+                      <td><%= cell %></td>
+                    <% }) %>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </section>
+        </div>
+
+        <!-- 4nd section  -->
+        <div>
+          <section class="border-bottom">
+            <h2 class="h1-title">Audio Notes</h2>
+            <p ><%= AudioNotes %></p>
+          </section>
+          <section class="border-bottom">
+            <h2 class="h1-title">Equipment/Tech Notes</h2>
+            <p ><%= equipmentNotes %></p>
+          </section>
+          <section class="border-bottom">
+            <h2 class="h1-title">Remarks</h2>
+            <p ><%= remarks %></p>
+          </section>
+        </div>
+
+    </main> 
+    </div>
+  </body>
+</html>
